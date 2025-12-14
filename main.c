@@ -40,7 +40,7 @@ int main(void) {
             save_user_result(DATAFILE, username, &result);
             generate_plan_from_result(&result);
         } else if (choice == 3) {
-            printf("Goodbye %s — keep poking pointers!\n", username);
+            printf("Goodbye %s... keep poking pointers!\n", username);
             break;
         } else {
             printf("Invalid choice. Please try again.\n");

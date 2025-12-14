@@ -1,48 +1,38 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "lessons.h"
 
-void show_lesson_intro(void) {
-    printf("\n=== Pointer Basics ===\n");
-    printf("- What is a pointer? A variable that stores the memory address of another variable.\n");
-    printf("- Declaration: int *p;\n");
-    printf("- Dereference: *p\n");
-    printf("- Address-of: &x\n");
+#define LESSONS_DIR "lessons"
+#define MAX_PATH 512
+
+void show_lesson(const char *name) {
+    char path[MAX_PATH];
+    int n = snprintf(path, sizeof(path), "%s/%s.txt", LESSONS_DIR, name);
+    if (n <= 0 || n >= (int)sizeof(path)) {
+        fprintf(stderr, "Lesson path too long\n");
+        return;
+    }
+
+    FILE *f = fopen(path, "r");
+    if (!f) {
+        fprintf(stderr, "Lesson file not found: %s\n", path);
+        return;
+    }
+
+    char line[1024];
+    while (fgets(line, sizeof(line), f)) {
+        fputs(line, stdout);
+    }
+    fclose(f);
 }
 
-
-void show_lesson_arithmetic(void) {
-    printf("\n=== Pointer Arithmetic ===\n");
-    printf("- Adding/subtracting moves by sizeof(type)\n");
-    printf("- p+1 moves to next element for arrays.\n");
-}
-
-
-void show_lesson_arrays(void) {
-    printf("\n=== Pointers & Arrays ===\n");
-    printf("- Array name decays to pointer to first element.\n");
-    printf("- Access: a[i] == *(a + i)\n");
-}
-
-
-void show_lesson_functions(void) {
-    printf("\n=== Pointers & Functions ===\n");
-    printf("- Pass by pointer to modify caller's data.\n");
-    printf("- Example: void swap(int *a, int *b) { int t=*a;*a=*b;*b=t;}\n");
-}
-
-
-void show_lesson_dynamic(void) {
-    printf("\n=== Dynamic Memory ===\n");
-    printf("- malloc, free, calloc, realloc.\n");
-    printf("- Always check for NULL and free memory when done.\n");
-}
-
-
-void show_lesson_common(void) {
-    printf("\n=== Common Pointer Bugs ===\n");
-    printf("- Dangling pointers, double free, buffer overflow, uninitialized pointers.\n");
-}
-
+void show_lesson_intro(void)       { printf("\n=== Pointer Basics ===\n"); show_lesson("intro"); }
+void show_lesson_arithmetic(void)  { printf("\n=== Pointer Arithmetic ===\n"); show_lesson("arithmetic"); }
+void show_lesson_arrays(void)      { printf("\n=== Pointers & Arrays ===\n"); show_lesson("arrays"); }
+void show_lesson_functions(void)   { printf("\n=== Pointers & Functions ===\n"); show_lesson("functions"); }
+void show_lesson_dynamic(void)     { printf("\n=== Dynamic Memory ===\n"); show_lesson("dynamic"); }
+void show_lesson_common(void)      { printf("\n=== Common Pointer Bugs ===\n"); show_lesson("common"); }
 
 void show_all_lessons(void) {
     printf("\n-- Full Pointer Lessons (comprehensive) --\n");
@@ -53,7 +43,5 @@ void show_all_lessons(void) {
     show_lesson_dynamic();
     show_lesson_common();
     printf("\nExercises:\n");
-    printf("1) Write a function that reverses an array using pointers.\n");
-    printf("2) Allocate a 2D array dynamically and free it.\n");
-    printf("3) Implement your own strdup using malloc and pointers.\n");
+    show_lesson("exercises"); 
 }

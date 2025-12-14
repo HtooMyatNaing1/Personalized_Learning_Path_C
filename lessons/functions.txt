@@ -1,0 +1,44 @@
+=== Pointers & Functions ===
+
+C uses pass-by-value.
+
+This means:
+    Functions receive copies of arguments.
+
+Problem:
+    void swap(int a, int b);  // cannot modify caller
+
+Solution:
+    Pass pointers.
+
+Example:
+    void swap(int *a, int *b) {
+        int tmp = *a;
+        *a = *b;
+        *b = tmp;
+    }
+
+Call:
+    swap(&x, &y);
+
+Now the function can modify original variables.
+
+Pointers allow:
+- Returning multiple results
+- Modifying caller data
+- Efficient array handling
+
+Arrays in functions:
+    void print(int *arr, int size);
+
+Same as:
+    void print(int arr[], int size);
+
+Common mistake:
+Forgetting to pass the address.
+
+Rule:
+If a function must modify data → pass a pointer.
+
+Side effects:
+Intentional memory modification through pointers.

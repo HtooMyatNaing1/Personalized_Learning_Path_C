@@ -1,0 +1,43 @@
+=== Dynamic Memory ===
+
+Static memory:
+- Allocated at compile time
+- Fixed size
+
+Dynamic memory:
+- Allocated at runtime
+- Controlled by programmer
+
+Functions:
+    malloc   → allocate uninitialized memory
+    calloc   → allocate zeroed memory
+    realloc  → resize memory
+    free     → release memory
+
+Example:
+    int *p = malloc(sizeof(int) * 5);
+
+Always check:
+    if (p == NULL)
+
+Using memory:
+    p[0] = 10;
+
+Freeing memory:
+    free(p);
+    p = NULL;
+
+Rules:
+- Every malloc/calloc must have a free
+- Never use memory after free
+- Never free the same pointer twice
+
+realloc behavior:
+- May move memory
+- Old pointer becomes invalid
+
+Correct realloc:
+    int *tmp = realloc(p, new_size);
+    if (tmp) p = tmp;
+
+Dynamic memory is powerful but unforgiving.

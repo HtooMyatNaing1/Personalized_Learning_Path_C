@@ -1,0 +1,37 @@
+# qid | lesson_key | message
+
+1 | intro | Address-of operator: review pointer declaration and the & operator.
+2 | intro | Dereferencing pointers: review how * accesses the value at an address.
+3 | arrays | Pointers and arrays: review pointer arithmetic and array indexing.
+4 | dynamic | Dynamic memory allocation: review malloc usage and heap allocation.
+5 | common | Double free bug: review correct free usage and ownership rules.
+6 | functions | Passing pointers to functions: review how functions modify caller data.
+
+7 | arithmetic | Pointer size vs value: review sizeof on pointers vs pointed data.
+8 | common | NULL pointer dereference: review why dereferencing NULL is undefined behavior.
+9 | dynamic | Heap vs stack memory: review which memory is safe to free.
+10 | dynamic | calloc vs malloc: review zero-initialization differences.
+
+11 | common | Dangling pointers: review pointers that reference freed memory.
+12 | common | Memory leaks: review what happens when allocated memory is not freed.
+13 | arrays | Pointer arithmetic rules: review valid pointer operations.
+14 | intro | Pointer to pointer: review double indirection and ** usage.
+15 | dynamic | realloc behavior: review resizing dynamically allocated memory.
+
+16 | structs | Struct pointers: review the -> operator and struct member access.
+17 | functions | Arrays as function parameters: review array decay to pointer behavior.
+18 | dynamic | malloc failure handling: review NULL return values.
+19 | dynamic | Standard library headers: review stdlib.h for memory functions.
+20 | common | Buffer overflow: review writing beyond allocated memory.
+
+21 | arithmetic | Pointer comparison rules: review when pointer comparisons are valid.
+22 | intro | Address-of and dereference identity: review *(&x) behavior.
+23 | dynamic | Lifetime of heap memory: review allocation and free timing.
+24 | common | free(NULL) behavior: review why it is safe and defined.
+25 | common | String literals: review where string literals are stored.
+
+26 | common | Undefined behavior: review why some pointer operations have unpredictable results.
+27 | dynamic | calloc vs malloc safety: review initialization and defensive allocation.
+28 | common | Memory debugging tools: review valgrind and leak detection.
+29 | common | Use-after-free bug: review accessing memory after free.
+30 | common | Setting pointer to NULL after free: review how it prevents dangling usage.

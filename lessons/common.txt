@@ -1,0 +1,37 @@
+=== Common Pointer Bugs ===
+
+1. Uninitialized pointer
+    int *p;
+    *p = 10;  // undefined behavior
+
+2. NULL dereference
+    int *p = NULL;
+    *p = 5;   // crash
+
+3. Dangling pointer
+    int *p = malloc(sizeof(int));
+    free(p);
+    *p = 10;  // invalid
+
+4. Double free
+    free(p);
+    free(p);  // undefined behavior
+
+5. Memory leak
+    malloc without free
+
+6. Buffer overflow
+    Writing beyond allocated memory
+
+7. Type confusion
+    Casting pointers incorrectly
+
+Defense strategies:
+- Initialize pointers
+- Set to NULL after free
+- Use tools like valgrind
+- Keep ownership rules clear
+
+Mantra:
+If you didn’t allocate it, don’t free it.
+If you freed it, don’t touch it.

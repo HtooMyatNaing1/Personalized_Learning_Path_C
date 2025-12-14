@@ -8,7 +8,9 @@ typedef struct {
     int incorrect_count;
 } QuizResult;
 
-/* function prototype */
+
 QuizResult take_quiz(void);
+
+void quiz_cleanup(void);
 
 #endif /* QUIZ_H */

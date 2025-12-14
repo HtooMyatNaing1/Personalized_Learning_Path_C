@@ -1,0 +1,44 @@
+=== Pointer Fundamentals ===
+
+A pointer is a variable that stores a memory address.
+
+Declaration:
+    int *p;
+
+This means:
+    p can store the address of an int
+    *p refers to the int value at that address
+
+Address-of operator (&):
+    int x = 10;
+    int *p = &x;
+
+Now:
+    p  → address of x
+    *p → value of x (10)
+
+Dereferencing (*):
+    *p = 20;   // modifies x
+
+Key rules:
+- A pointer must point to valid memory before dereferencing
+- Uninitialized pointers are dangerous
+- NULL means "points to nothing"
+
+NULL pointer:
+    int *p = NULL;
+
+Always check before use.
+
+Memory model:
+Variables live in memory.
+Pointers let you refer to that memory indirectly.
+
+Why pointers exist:
+- Efficient data access
+- Dynamic memory
+- Function side effects
+- Low-level control
+
+Golden rule:
+Never dereference what you did not initialize.

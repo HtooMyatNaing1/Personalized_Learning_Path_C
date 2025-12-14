@@ -1,0 +1,39 @@
+=== Pointers & Arrays ===
+
+Arrays and pointers are closely related, but not identical.
+
+Array declaration:
+    int arr[5];
+
+Pointer to array:
+    int *p = arr;
+
+Important truth:
+    arr == &arr[0]
+
+Access methods:
+    arr[i]  == *(arr + i)
+    p[i]    == *(p + i)
+
+Pointer arithmetic:
+- Incrementing a pointer moves by sizeof(type)
+- p + 1 moves to the next int
+
+Example:
+    int arr[3] = {10, 20, 30};
+    int *p = arr;
+
+    *(p + 1) → 20
+
+What you CANNOT do:
+    arr = p;   // invalid
+    arr++;     // invalid
+
+Why?
+Arrays are fixed memory blocks.
+Pointers are variables.
+
+Arrays decay to pointers when passed to functions.
+
+Mental model:
+Array name = constant pointer to first element.

@@ -1,0 +1,77 @@
+=== Pointer Arithmetic ===
+
+Pointer arithmetic is not math on addresses.
+It is math scaled by the size of the pointed type.
+
+If:
+    int *p;
+
+Then:
+    p + 1  moves by sizeof(int) bytes
+    p + n  moves by n * sizeof(int) bytes
+
+Example:
+    int arr[4] = {10, 20, 30, 40};
+    int *p = arr;
+
+Memory layout (conceptual):
+    p     → arr[0]
+    p+1   → arr[1]
+    p+2   → arr[2]
+
+Access equivalence:
+    p[i]        == *(p + i)
+    *(p + i)    == p[i]
+    i[p]        == *(i + p)   // valid but unreadable
+
+Increment and decrement:
+    p++   → move to next element
+    p--   → move to previous element
+
+Important:
+Pointer arithmetic depends on the pointer type.
+
+Example:
+    char *c;
+    int  *i;
+
+    c + 1 moves 1 byte
+    i + 1 moves sizeof(int) bytes
+
+Subtracting pointers:
+Only valid when both pointers point into the same array.
+
+Example:
+    int *a = &arr[1];
+    int *b = &arr[4];
+
+    b - a == 3   // number of elements between them
+
+What pointer arithmetic CANNOT do:
+- Add two pointers
+- Multiply or divide pointers
+- Move outside allocated memory
+
+Invalid:
+    p + 100   // if array size is smaller
+    p - 1     // before array start
+
+This causes undefined behavior.
+
+Pointer vs array indexing:
+Indexing is syntax sugar.
+Pointer arithmetic is the underlying mechanism.
+
+Why pointer arithmetic exists:
+- Fast array traversal
+- Low-level memory control
+- Efficient algorithms
+
+Safe usage rules:
+- Stay within allocated bounds
+- Know the size of the array
+- Prefer indexing for clarity
+- Use pointer arithmetic when performance or design demands it
+
+Mental model:
+A pointer is a cursor walking through memory in steps of its type size.

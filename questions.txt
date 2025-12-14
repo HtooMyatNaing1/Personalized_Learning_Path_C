@@ -1,0 +1,35 @@
+1) What operator gives the address of a variable? a) * b) & c) -> d) %
+2) If int *p; what does *p represent? a) address b) value pointed to c) pointer size d) type
+3) Which expression is equivalent to a[3]? a) *(a+3) b) *a+3 c) a+3 d) &a[3]
+4) Which function allocates memory dynamically? a) malloc b) alloc c) new d) create
+5) What bug occurs when free() is called twice on the same pointer? a) dangling b) double free c) leak d) overflow
+6) In void f(int *p){*p=5;} what happens? a) nothing b) caller value changes c) memory freed d) compile error
+
+7) What does sizeof(int*) return? a) size of int b) size of pointer c) size of memory pointed to d) array size
+8) What happens if you dereference a NULL pointer? a) returns 0 b) undefined behavior c) compiler warning d) memory freed
+9) Which pointer is safe to free? a) uninitialized b) stack pointer c) heap pointer d) NULL
+10) What does calloc do differently from malloc? a) faster b) allocates stack c) zero-initializes memory d) cannot be freed
+
+11) What is a dangling pointer? a) pointer to stack b) pointer after free c) NULL pointer d) function pointer
+12) What happens if you forget to free allocated memory? a) crash b) memory leak c) double free d) overflow
+13) Which is valid pointer arithmetic? a) p+1 b) p+p c) p*2 d) p/2
+14) What does int **pp represent? a) pointer to int b) pointer to pointer c) array d) double integer
+15) What does realloc do? a) free memory b) resize memory c) copy pointer d) reset pointer
+
+16) Which operator accesses struct members via pointer? a) . b) & c) -> d) *
+17) What happens when you pass an array to a function? a) copied b) pointer passed c) error d) moved
+18) What is returned by malloc on failure? a) -1 b) 0 c) NULL d) garbage
+19) Which header is required for malloc/free? a) stdio.h b) string.h c) stdlib.h d) memory.h
+20) What is buffer overflow? a) too many pointers b) writing beyond memory c) memory leak d) stack allocation
+
+21) Which pointer comparison is valid? a) p==q b) p>q c) p<q d) all of these
+22) What does *(&x) evaluate to? a) address b) value of x c) pointer d) error
+23) What is the lifetime of heap memory? a) function scope b) block scope c) until free d) program only
+24) What happens if you free(NULL)? a) crash b) error c) nothing d) undefined
+25) What does char *s = "hello"; point to? a) stack b) heap c) string literal d) NULL
+
+26) What is undefined behavior? a) compiler error b) predictable crash c) unpredictable result d) warning only
+27) Which is safer: malloc or calloc? a) malloc b) calloc c) same d) neither
+28) What tool helps detect memory leaks? a) gcc b) gdb c) valgrind d) make
+29) What happens if you access freed memory? a) safe b) NULL c) undefined behavior d) warning
+30) What does setting pointer to NULL after free prevent? a) leaks b) overflow c) dangling pointer use d) allocation failure
